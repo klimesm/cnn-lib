@@ -15,7 +15,7 @@ from cnn_lib.cnn_exceptions import ModelConfigError
 class _BaseModel(Model, ABC):
     """A base Model class holding methods mutual for various architectures."""
 
-    def __init__(self, nr_classes, nr_bands=12, nr_filters=64, batch_norm=True,
+    def __init__(self, nr_classes, nr_bands=12, nr_filters=64, batch_norm=False,
                  dilation_rate=1, tensor_shape=(256, 256),
                  activation=k_layers.ReLU, padding='same',
                  dropout_rate_input=None, dropout_rate_hidden=None,

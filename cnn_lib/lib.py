@@ -336,7 +336,7 @@ class ConvBlock(Layer):
 
     def __init__(self, filters=(64, ), kernel_sizes=((3, 3), ),
                  activations=(k_layers.ReLU, ), paddings=('same', ),
-                 dilation_rate=1, batch_norm=True, dropout_rate=None, depth=2,
+                 dilation_rate=1, batch_norm=False, dropout_rate=None, depth=2,
                  strides=((1, 1), ), kernel_initializer='glorot_uniform',
                  use_bias=True, name='conv_block', **kwargs):
         """Create a block of convolutional layers.
