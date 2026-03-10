@@ -318,7 +318,7 @@ def categorical_tversky(ground_truth_onehot, predictions, alpha=0.5, beta=0.5, w
     numerator = tf.reduce_sum(true_pos, axis=(1, 2))
     denominator = true_pos + alpha * false_neg + beta * false_pos
     denominator = tf.reduce_sum(denominator, axis=(1, 2))
-    tversky = numerator / denominator
+    tversky = numerator / (denominator + 1e-6)
 
     # reduce mean for batches
     tversky = tf.reduce_mean(tversky, axis=0)
