@@ -117,7 +117,7 @@ def run(
             model.compile(
                 optimizer=model.optimizer,
                 loss=model.loss,
-                metrics=model.compiled_metrics._metrics,
+                metrics=model.metrics_names[1:]
             )
 
     train_generator = AugmentGenerator(
