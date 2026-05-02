@@ -51,6 +51,7 @@ def run(
     name=None,
     frozen_layer_groups=None,
     skip_mismatch=True,
+    learning_rate=None,
     verbose=1,
 ):
     if verbose > 0:
@@ -74,12 +75,18 @@ def run(
         else:
             tf.keras.utils.set_random_seed(seed)
 
+    if learning_rate is not None:
+        optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    else:
+        optimizer = 'adam'
+
     model = create_model(
         model,
         len(id2code),
         nr_bands,
         tensor_shape,
         loss=loss_function,
+        optimizer=optimizer,
         alpha=tversky_alpha,
         beta=tversky_beta,
         dropout_rate_input=dropout_rate_input,

@@ -243,6 +243,13 @@ if __name__ == '__main__':
         'Useful when the number of bands or classes changed between '
         'the donor and target datasets.',
     )
+    parser.add_argument(
+        '--learning_rate',
+        type=float,
+        default=None,
+        help='Learning rate for the optimizer. If None, uses the optimizer '
+             'default (1e-3 for Adam). ',
+    )
 
     args = parser.parse_args()
 
@@ -310,4 +317,5 @@ if __name__ == '__main__':
         args.backbone,
         frozen_layer_groups=frozen_layer_groups,
         skip_mismatch=args.skip_mismatch,
+        learning_rate=args.learning_rate,
     )
