@@ -114,7 +114,7 @@ def run(
             if frozen_layer_groups == ['all']:
                 model.set_layers_trainable(False)
                 model.layers[-1].trainable = True
-                model.classifier_layer.trainable = True
+                model.get_layer('classifier_layer').trainable = True
             else:
                 model.set_layers_trainable(False, frozen_layer_groups)
             model.compile(
